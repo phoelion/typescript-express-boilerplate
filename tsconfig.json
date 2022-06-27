@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "strict": true,
-    "baseUrl": "./src/",
+    "baseUrl": "./",
+    "paths": {
+      "@repository/*": ["src/repository/*"],
+      "@components/*": ["src/components/*"],
+      "@services/*": ["src/services/*"]
+    },
     "removeComments": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

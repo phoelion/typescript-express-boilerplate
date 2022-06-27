@@ -1,20 +1,20 @@
-import router from '../components/user/router'
-import { Application, Router } from 'express'
-import RouteEngine from './router'
-import config from 'config/config'
+
+import { Application, Router } from 'express';
+import RouteEngine from './router';
+import authRouter from '../components/auth/router';
 
 class RouteService {
-  private app: Application
-  private router: RouteEngine
+  private app: Application;
+  private router: RouteEngine;
   public constructor(app: Application) {
-    this.app = app
-    this.router = new RouteEngine()
-    this.bindRouters()
+    this.app = app;
+    this.router = new RouteEngine();
+    this.bindRouters();
   }
 
   public bindRouters() {
     //register the other rotes here
-    this.router.registerRouter('/api/v1/', router)
+    this.router.registerRouter('/api/v1/auth', authRouter);
     // if (config.env === 'development') {
     //   this.router.registerRouter('/api/v1/docs', docsRouter)
     // }
@@ -22,9 +22,9 @@ class RouteService {
 
   public run() {
     this.router.getRouters().forEach((router: Router, routeName: string) => {
-      this.app.use(routeName, router)
-    })
+      this.app.use(routeName, router);
+    });
   }
 }
 
-export default RouteService
+export default RouteService;
