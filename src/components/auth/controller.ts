@@ -16,14 +16,15 @@ export default class AuthController {
 
   public signup = catchAsync(async (req: Request, res: Response) => {
     const user = await this.authService.signup(req.body);
-    const tokens = await this.tokenService.generateAuthTokens(user);
     if (!user) throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Registration Failed');
+    const tokens = await this.tokenService.generateAuthTokens(user);
     res.send({ user, tokens });
   });
+
   public login = catchAsync(async (req: Request, res: Response) => {
     const user = await this.authService.loginWithEmail(req.body);
-    const tokens = await this.tokenService.generateAuthTokens(user);
+    const token = await this.tokenService.generateAuthTokens(user);
     if (!user) throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Registration Failed');
-    res.send({ user, tokens });
+    res.send({ user, token });
   });
 }

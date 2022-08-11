@@ -1,7 +1,8 @@
-
 import { Application, Router } from 'express';
 import RouteEngine from './router';
 import authRouter from '../components/auth/router';
+import docsRouter from '../components/docs/router';
+import config from '../config/config';
 
 class RouteService {
   private app: Application;
@@ -15,9 +16,9 @@ class RouteService {
   public bindRouters() {
     //register the other rotes here
     this.router.registerRouter('/api/v1/auth', authRouter);
-    // if (config.env === 'development') {
-    //   this.router.registerRouter('/api/v1/docs', docsRouter)
-    // }
+    if (config.env === 'development') {
+      this.router.registerRouter('/api/v1/docs', docsRouter);
+    }
   }
 
   public run() {

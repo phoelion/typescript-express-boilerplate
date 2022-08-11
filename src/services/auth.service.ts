@@ -1,9 +1,9 @@
-import * as Joi from 'joi';
 import MongoRepository from '../repository/mongo.repository';
 import User from '../components/user/model/User';
 import IUser from '../components/user/model/IUser';
 import ApiError from '../utils/ApiError';
 import * as httpStatus from 'http-status';
+import { validateSignup } from '../utils/Validators';
 
 export default class Auth {
   private userRepository: MongoRepository;
@@ -13,16 +13,9 @@ export default class Auth {
   }
 
   public async signup(credentials: Partial<IUser>) {
-    const { name, email, password, passwordConfirm } = credentials;
-    const schema = Joi.object({
-      name: Joi.string().alphanum().min(3).max(30).required(),
-      password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-      passwordConfirm: Joi.ref('password'),
-      email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'ir'] } }),
-    });
-    const value = await schema.validateAsync({ name, password, passwordConfirm, email });
-    if (!value) return value;
-    const user = await this.userRepository.createOne(value);
+    const validateResult = await validateSignup(credentials);
+    if (!validateResult) return validateResult;
+    const user = await this.userRepository.createOne(validateResult);
     return user;
   }
   public async loginWithEmail(credentials: Partial<IUser>) {
