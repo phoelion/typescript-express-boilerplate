@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "debug": "ndb server.js",
-    "start": "ts-node server.js",
+    "start": "cross-env NODE_ENV=production nodemon src/server.js",
     "dev": "cross-env NODE_ENV=development nodemon src/server.js",
-    "build": "npx tsc",
-    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",

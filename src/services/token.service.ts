@@ -1,6 +1,5 @@
 import config from '../config/config';
 import IUser from '../components/user/model/IUser';
-import catchAsync from '../utils/catchAsync';
 import * as moment from 'moment';
 import * as jwt from 'jsonwebtoken';
 import tokenTypes from '../config/tokens';
@@ -44,5 +43,13 @@ export default class TokenService {
         expires: refreshTokenExpires.toDate(),
       },
     };
+  }
+  public async verifyToken(token: string, type: tokenTypes) {
+    const payload = jwt.verify(token, config.jwt.secret);
+    const tokenDoc = await Token.findOne({ token, type, user: payload.sub, blacklisted: false });
+    if (!tokenDoc) {
+      throw new Error('Token not found');
+    }
+    return tokenDoc;
   }
 }

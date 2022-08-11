@@ -27,4 +27,14 @@ export default class AuthController {
     if (!user) throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Registration Failed');
     res.send({ user, token });
   });
+
+  public refreshTokens = catchAsync(async (req: Request, res: Response) => {
+    const tokens = await this.authService.refreshAuth(req.body.refreshToken);
+    res.send({ ...tokens });
+  });
+
+  public logout = catchAsync(async (req: Request, res: Response) => {
+    await this.authService.logout(req.body.refreshToken);
+    res.status(httpStatus.NO_CONTENT).send();
+  });
 }
