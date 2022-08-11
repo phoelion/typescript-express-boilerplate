@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "lines-around-comment": [
+      "warn",
+      {
+        "beforeBlockComment": true,
+        "afterBlockComment": true,
+        "beforeLineComment": true,
+        "afterLineComment": false,
+        "allowBlockStart": true,
+        "allowBlockEnd": true,
+        "allowObjectStart": true,
+        "allowObjectEnd": true,
+        "allowArrayStart": true,
+        "allowArrayEnd": true
+      }
+    ]
+  }
+}

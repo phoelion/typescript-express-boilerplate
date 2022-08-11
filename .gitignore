@@ -1,13 +1,2 @@
-node_modules
+node_modules/
 
-config.eslintrc.json
-*.eslintrc
-*.eslintignore
-
-*.prettierrc
-config.env
-*.env
-yarn.lock
-package-lock.josn
-
-.cache/

@@ -14,7 +14,6 @@ class RouteService {
   }
 
   public bindRouters() {
-    //register the other rotes here
     this.router.registerRouter('/api/v1/auth', authRouter);
     if (config.env === 'development') {
       this.router.registerRouter('/api/v1/docs', docsRouter);
