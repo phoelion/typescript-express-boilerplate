@@ -1,5 +1,6 @@
 import { randomBytes } from 'crypto';
 import { v4 as uuidV4 } from 'uuid';
+
 // import { hashSync, compareSync } from 'bcrypt'
 
 export const randomHash = (length = 20): string => {
