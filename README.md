@@ -1,7 +1,5 @@
 # Typescript Express Starter
 
-![Typescript Express Starter](https://your-image-url.png)
-
 A powerful and feature-rich starter template for building backend applications using Node.js, Express, and TypeScript. This starter template incorporates various essential components and follows best practices to accelerate your development process.
 
 ## Features
