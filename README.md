@@ -29,11 +29,13 @@ Before getting started, ensure that you have the following installed on your mac
 Follow these steps to get started with the Typescript Express Starter:
 
 1. Clone this repository to your local machine.
+
    ```bash
    git clone https://github.com/phoelion/typescript-express-starter.git
    ```
 
 2. Install the project dependencies using npm or Yarn.
+
    ```bash
    cd typescript-express-starter
    npm install
@@ -42,12 +44,12 @@ Follow these steps to get started with the Typescript Express Starter:
 3. Configure the necessary environment variables. You can find a sample configuration file `.env.example` in the project root. Rename it to `.env` and update the values as per your requirements.
 
 4. Start the development server.
+
    ```bash
    npm run dev
    ```
 
 5. Open your browser and navigate to `http://localhost:3000` to access the sample tour component.
-
 
 ## Configuration
 
@@ -62,8 +64,8 @@ The following scripts are available in the project:
 - `npm run prod`: Starts the production server using `nodemon`
 - `npm start`: Starts the production server using the compiled code from the dist folder.
 
-
 ## Swagger Documentation
+
 ### Future
 
 The API endpoints are documented using Swagger. Once the server is running, you can access the Swagger documentation at `http://localhost:3000/api-docs`.
@@ -71,3 +73,13 @@ The API endpoints are documented using Swagger. Once the server is running, you 
 ## Contributing
 
 Contributions are welcome! If you have any improvements or bug fixes, feel free to submit a
+
+pull request.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+[GitHub Repository](https://github.com/phoelion/typescript-express-starter)
