@@ -9,7 +9,7 @@
     "importHelpers": true,
     "target": "es2018",
     "module": "commonjs",
-    "outDir": "./build",
+    "outDir": "./dist",
     "types": ["node"],
     "typeRoots": ["node_modules/@types"]
   },
