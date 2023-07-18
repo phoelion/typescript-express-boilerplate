@@ -45,7 +45,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.3",
-    "mongoose": "^6.4.0",
+    "mongoose": "^6.11.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
     "slugify": "^1.6.6",
